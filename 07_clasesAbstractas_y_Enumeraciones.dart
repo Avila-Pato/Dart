@@ -1,16 +1,21 @@
 void main() {
   final windPlant = WindPlant(initialEnergy: 100);
+  final windPlant2 = WindPlant(initialEnergy: 200);
   final nuclearPlant = NuclearPlant(energyLeft: 1000);
 
   print('Wind: ${windPlant.energyLeft} (${windPlant.type})');
+  print('Wind 2: ${windPlant2.energyLeft} (${windPlant2.type})');
+  print("----");
   print('Nuclear: ${nuclearPlant.energyLeft} (${nuclearPlant.type})');
 
   windPlant.consumeEnergy(20);
+  windPlant2.consumeEnergy(20);
   nuclearPlant.consumeEnergy(20); // consume la mitad: 10
 
   // Ambas se pueden pasar como EnergyPlant (polimorfismo),
   // sin importar si usaron extends o implements.
   print('Carga con wind: ${chargePhone(windPlant)}');
+  print('Carga con wind 2: ${chargePhone(windPlant2)}');
   print('Carga con nuclear: ${chargePhone(nuclearPlant)}');
 }
 
